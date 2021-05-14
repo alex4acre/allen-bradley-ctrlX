@@ -32,8 +32,13 @@
 #include <iostream>
 #include <signal.h>
 #include <thread>
+#include "lib/libplctag.h"
 
 #include "sampleSchema_generated.h"
+
+//#define TAG_PATH "protocol=ab_eip&gateway=192.168.0.70&path=1,0&cpu=LGX&elem_size=4&elem_count=10&name=myDINTArray"
+#define TAG_PATH "protocol=ab_eip&gateway=192.168.0.70&path=1,0&cpu=LGX&name=SinCounter"
+#define DATA_TIMEOUT 5000
 
 // Add some signal Handling so we are able to abort the program with sending sigint
 bool endProcess = false;
@@ -158,6 +163,32 @@ int main(int ac, char* av[])
   raise(SIGSTOP);
 #endif
 
+  int32_t tag = 0;
+  int rc;
+  tag = plc_tag_create(TAG_PATH, DATA_TIMEOUT);
+  if (tag < 0){
+    //fprintf(stderr,"ERROR %s: Could not create tag!\n", plc_tag_decode_error(tag));
+    std::cout << "FOURAKER - ERROR: Could not create tag!"<< std::endl;
+    return 0;
+  }
+
+  if((rc = plc_tag_status(tag)) != PLCTAG_STATUS_OK) {
+       std::cout << "FOURAKER - Error setting up tag internal state. Error"<< std::endl;
+        plc_tag_destroy(tag);
+        return 0;
+    }
+
+  /* get the data */
+    rc = plc_tag_read(tag, DATA_TIMEOUT);
+    if(rc != PLCTAG_STATUS_OK) {
+        std::cout << "FOURAKER - ERROR: Unable to read the data! Got error code"<< std::endl;
+        //fprintf(stderr,"ERROR: Unable to read the data! Got error code %d: %s\n",rc, plc_tag_decode_error(rc));
+        plc_tag_destroy(tag);
+        return 0;
+    }
+  float readValue = plc_tag_get_float32(tag, 0);
+  std::cout << "FOURAKER - SUCCESS: Data "<< readValue << std::endl;
+
   comm::datalayer::DatalayerSystem datalayer;
   comm::datalayer::DlResult result;
   // Starts the ctrlX Data Layer system without a new broker because one broker is already running on ctrlX device
@@ -165,7 +196,7 @@ int main(int ac, char* av[])
   std::cout << "Register 'myData' as root element with 4 nodes 'myFlatbuffer', 'myFloat', 'myString' and 'myInt64'" << std::endl;
   
   // Creates a provider at Data Layer backend to provide data to Data Layer clients
-  comm::datalayer::IProvider *myProvider = datalayer.factory()->createProvider("tcp://boschrexroth:boschrexroth@192.168.1.1:2070"); //or "tcp://boschrexroth:boschrexroth@192.168.1.1:2070
+  comm::datalayer::IProvider *myProvider = datalayer.factory()->createProvider("tcp://boschrexroth:boschrexroth@192.168.0.10:2070"); //or "tcp://boschrexroth:boschrexroth@192.168.1.1:2070
 
   // Create some simple dummy data
   comm::datalayer::Variant myString;

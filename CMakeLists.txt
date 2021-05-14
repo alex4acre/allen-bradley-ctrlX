@@ -21,6 +21,7 @@ set(TARGET_PROJECT_NAME registerNode)
 set (USER_DEPENDENCY_DIR ${CMAKE_CURRENT_LIST_DIR}/../../)
 set (DATALAYER_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/comm.datalayer/)
 set (ZMQ_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/zmq/)
+set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/)
 
 #
 # Option to Build the Snap
@@ -126,6 +127,8 @@ TARGET_LINK_LIBRARIES ( ${TARGET_PROJECT_NAME}
   ${ZMQ_DEP_DIR}/${PLATFORM_NAME}/release/libzmq.so
   ssl
   crypto
+  ${AB_DRIVER_DEP}/libplctag.so
+  ${AB_DRIVER_DEP}/libplctag.so.2.3  
 )
 
 #
@@ -144,6 +147,8 @@ install( TARGETS ${TARGET_PROJECT_NAME}
 install(FILES ${DATALAYER_DEP_DIR}/${PLATFORM_NAME}/release/libcomm_datalayer.so DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/${PLATFORM_NAME}/${CMAKE_BUILD_TYPE}/usr/lib)
 install(FILES ${ZMQ_DEP_DIR}/${PLATFORM_NAME}/release/libzmq.so DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/${PLATFORM_NAME}/${CMAKE_BUILD_TYPE}/usr/lib)
 install(FILES ${ZMQ_DEP_DIR}/${PLATFORM_NAME}/release/libzmq.so.5 DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/${PLATFORM_NAME}/${CMAKE_BUILD_TYPE}/usr/lib)
+install(FILES ${AB_DRIVER_DEP}/libplctag.so DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/${PLATFORM_NAME}/${CMAKE_BUILD_TYPE}/usr/lib)
+install(FILES ${AB_DRIVER_DEP}/libplctag.so.2.3 DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/${PLATFORM_NAME}/${CMAKE_BUILD_TYPE}/usr/lib)
 
 if (BUILD_SNAP)
   #
@@ -162,6 +167,8 @@ if (BUILD_SNAP)
   install(FILES ${DATALAYER_DEP_DIR}/${PLATFORM_NAME}/release/libcomm_datalayer.so DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/build/usr/lib)
   install(FILES ${ZMQ_DEP_DIR}/${PLATFORM_NAME}/release/libzmq.so DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/build/usr/lib)
   install(FILES ${ZMQ_DEP_DIR}/${PLATFORM_NAME}/release/libzmq.so.5 DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/build/usr/lib)
+  install(FILES ${AB_DRIVER_DEP}/libplctag.so DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/build/usr/lib)
+  install(FILES ${AB_DRIVER_DEP}/libplctag.so.2.3 DESTINATION ${CMAKE_CURRENT_LIST_DIR}/generated/build/usr/lib)
 endif(BUILD_SNAP)
 
 #
