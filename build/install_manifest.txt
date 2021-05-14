@@ -1,0 +1,8 @@
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libcomm_datalayer.so
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libzmq.so
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libzmq.so.5
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/registerNode
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib/libcomm_datalayer.so
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib/libzmq.so
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib/libzmq.so.5
