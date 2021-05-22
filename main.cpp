@@ -62,6 +62,20 @@ public:
   // Create function of an object. Function will be called whenever a object should be created.
   virtual void onCreate(const std::string &address, const comm::datalayer::Variant* data, const comm::datalayer::IProviderNode::ResponseCallback &callback) override
   {
+  int rc;
+  if (address.compare("myData/myFloat"))  
+    { 
+    tag = plc_tag_create(TAG_PATH, DATA_TIMEOUT);
+    if (tag < 0){
+      //fprintf(stderr,"ERROR %s: Could not create tag!\n", plc_tag_decode_error(tag));
+      std::cout << "FOURAKER - ERROR: Could not create tag!"<< std::endl;
+      }
+
+    if((rc = plc_tag_status(tag)) != PLCTAG_STATUS_OK) {
+        std::cout << "FOURAKER - Error setting up tag internal state. Error"<< std::endl;
+          plc_tag_destroy(tag);
+      }
+    }
     callback(comm::datalayer::DlResult::DL_FAILED, nullptr);
   }
 
@@ -69,14 +83,18 @@ public:
   virtual void onRead(const std::string &address, const comm::datalayer::Variant* data, const comm::datalayer::IProviderNode::ResponseCallback &callback) override
   {
     comm::datalayer::Variant result;
-    result = m_data;
+    if (address.compare("myData/myFloat"))
+    {   
+        result.setValue(plc_tag_get_float32(tag, 0));
+    }
+    else{result = m_data;}
     callback(comm::datalayer::DlResult::DL_OK, &result);
   }
 
   // Write function of a node. Function will be called whenever a node should be written.
   virtual void onWrite(const std::string &address, const comm::datalayer::Variant* data, const comm::datalayer::IProviderNode::ResponseCallback &callback) override
   {
-    if(data->getType() == m_data.getType())
+    if (data->getType() == m_data.getType())
     {
       m_data = *data;
 #ifdef MY_DEBUG
@@ -154,6 +172,7 @@ public:
   
 private:
   comm::datalayer::Variant m_data;
+  int32_t tag = 0;
 };
 
 
