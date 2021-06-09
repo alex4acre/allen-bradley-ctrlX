@@ -18,6 +18,6 @@ CMakeFiles/registerNode.dir/main.cpp.o
  ../../../include/comm.datalayer/flatbuffers/base.h
  ../../../include/comm.datalayer/flatbuffers/flatbuffers.h
  ../../../include/comm.datalayer/flatbuffers/stl_emulation.h
- /mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/libplctag.h
+ /mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm/libplctag.h
  /mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/main.cpp
  /mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/sampleSchema_generated.h

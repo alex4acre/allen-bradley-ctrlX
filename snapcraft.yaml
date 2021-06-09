@@ -4,7 +4,7 @@
 # See https://snapcraft.io/docs/snapcraft-yaml-reference
 
 name: registernode
-version: "1.0.1"
+version: "1.0.2"
 grade: stable
 summary: Sample app to register 'myData' node on ctrlX Data Layer
 description: |

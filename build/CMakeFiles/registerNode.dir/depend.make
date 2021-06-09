@@ -17,7 +17,7 @@ CMakeFiles/registerNode.dir/main.cpp.o: ../../../include/comm.datalayer/comm/dat
 CMakeFiles/registerNode.dir/main.cpp.o: ../../../include/comm.datalayer/flatbuffers/base.h
 CMakeFiles/registerNode.dir/main.cpp.o: ../../../include/comm.datalayer/flatbuffers/flatbuffers.h
 CMakeFiles/registerNode.dir/main.cpp.o: ../../../include/comm.datalayer/flatbuffers/stl_emulation.h
-CMakeFiles/registerNode.dir/main.cpp.o: ../lib/libplctag.h
+CMakeFiles/registerNode.dir/main.cpp.o: ../lib/arm/libplctag.h
 CMakeFiles/registerNode.dir/main.cpp.o: ../main.cpp
 CMakeFiles/registerNode.dir/main.cpp.o: ../sampleSchema_generated.h
 

@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -38,91 +38,91 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode")
+  if(EXISTS "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode"
+         FILE "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode"
          RPATH "")
   endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode")
+   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release" TYPE EXECUTABLE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/registerNode")
-  if(EXISTS "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64" TYPE EXECUTABLE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/registerNode")
+  if(EXISTS "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode"
-         OLD_RPATH "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/comm.datalayer/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/zmq/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib:"
+         FILE "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode"
+         OLD_RPATH "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/comm.datalayer/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/zmq/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/registerNode")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/registerNode")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libcomm_datalayer.so")
+   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib/libcomm_datalayer.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../..//bin/comm.datalayer//linux-gcc-aarch64/release/libcomm_datalayer.so")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../..//bin/comm.datalayer//linux-gcc-aarch64/release/libcomm_datalayer.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libzmq.so")
+   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib/libzmq.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../..//bin/zmq//linux-gcc-aarch64/release/libzmq.so")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../..//bin/zmq//linux-gcc-aarch64/release/libzmq.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libzmq.so.5")
+   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib/libzmq.so.5")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../..//bin/zmq//linux-gcc-aarch64/release/libzmq.so.5")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../..//bin/zmq//linux-gcc-aarch64/release/libzmq.so.5")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libplctag.so")
+   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib/libplctag.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib//libplctag.so")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm//libplctag.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib/libplctag.so.2.3")
+   "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib/libplctag.so.2.3")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/Release/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib//libplctag.so.2.3")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/linux-gcc-aarch64/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm//libplctag.so.2.3")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -145,7 +145,7 @@ file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.
      NOT IS_SYMLINK "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/registerNode")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/registerNode"
-         OLD_RPATH "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/comm.datalayer/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/zmq/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib:"
+         OLD_RPATH "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/comm.datalayer/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../bin/zmq/linux-gcc-aarch64/release:/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/registerNode")
@@ -198,7 +198,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib//libplctag.so")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm//libplctag.so")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -210,7 +210,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib//libplctag.so.2.3")
+file(INSTALL DESTINATION "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/generated/build/usr/lib" TYPE FILE FILES "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm//libplctag.so.2.3")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

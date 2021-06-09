@@ -7,7 +7,7 @@ cmake_minimum_required( VERSION 3.9 )
 # Project information
 # Set project, VERSION should be same as snap version
 #
-set(VERSION 1.0.0)
+set(VERSION 1.0.2)
 project( register_node_snap_project VERSION ${VERSION} )
 
 #
@@ -21,7 +21,7 @@ set(TARGET_PROJECT_NAME registerNode)
 set (USER_DEPENDENCY_DIR ${CMAKE_CURRENT_LIST_DIR}/../../)
 set (DATALAYER_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/comm.datalayer/)
 set (ZMQ_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/zmq/)
-set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/)
+set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/arm/)
 
 #
 # Option to Build the Snap

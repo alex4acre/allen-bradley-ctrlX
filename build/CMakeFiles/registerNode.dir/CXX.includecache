@@ -168,7 +168,7 @@ span
 array
 -
 
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/libplctag.h
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm/libplctag.h
 stdint.h
 -
 
@@ -183,10 +183,18 @@ iostream
 -
 signal.h
 -
+comm/datalayer/variant.h
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/comm/datalayer/variant.h
 thread
 -
-lib/libplctag.h
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/libplctag.h
+lib/arm/libplctag.h
+/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/lib/arm/libplctag.h
+string
+-
+map
+-
+vector
+-
 sampleSchema_generated.h
 /mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/sampleSchema_generated.h
 

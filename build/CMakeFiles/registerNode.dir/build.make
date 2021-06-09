@@ -92,8 +92,8 @@ registerNode: CMakeFiles/registerNode.dir/main.cpp.o
 registerNode: CMakeFiles/registerNode.dir/build.make
 registerNode: ../../../bin/comm.datalayer/linux-gcc-aarch64/release/libcomm_datalayer.so
 registerNode: ../../../bin/zmq/linux-gcc-aarch64/release/libzmq.so
-registerNode: ../lib/libplctag.so
-registerNode: ../lib/libplctag.so.2.3
+registerNode: ../lib/arm/libplctag.so
+registerNode: ../lib/arm/libplctag.so.2.3
 registerNode: CMakeFiles/registerNode.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable registerNode"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/registerNode.dir/link.txt --verbose=$(VERBOSE)
