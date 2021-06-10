@@ -70,6 +70,12 @@ int32_t tag = 0;
 int rc;
 std::map<std::string, int> tagMap;
 std::map<std::string, ABTag> ABtagMap;
+std::map<std::string, int> ptrABtagMap;
+std::vector<std::string> tagNames;
+std::vector<comm::datalayer::VariantType> tagTypes;
+std::vector<ABTag> abTags;
+//ABT tempABTag
+ABTag tempABTag = ABTag("nothing really", comm::datalayer::VariantType::FLOAT32);
 using comm::datalayer::IProviderNode;
 
 // Basic class Provider node interface for providing data to the system
@@ -91,10 +97,16 @@ public:
   // Read function of a node. Function will be called whenever a node should be read.
   virtual void onRead(const std::string &address, const comm::datalayer::Variant* data, const comm::datalayer::IProviderNode::ResponseCallback &callback) override
   {
-    comm::datalayer::Variant result;
-    result = m_data;
+    comm::datalayer::Variant *result;
+    tempABTag = abTags[ptrABtagMap[address]];
+    result = &(abTags[ptrABtagMap[address]].datalayerVariable);//tempABTag.datalayerVariable;//tempABTag.datalayerVariable;
+    //result = abTags[ptrABtagMap[address]].datalayerVariable;
+    
+    
+    //address.substr(address.find_last_of("/"), address.length() - address.find_last_of("/"));
+    //result = ABtagMap[address.substr(address.find_last_of("/"), address.length() - address.find_last_of("/"))].datalayerVariable;
     //int rc;
-    tag = (int32_t)tagMap[address];
+   /* tag = (int32_t)tagMap[address];
       if(rc = plc_tag_status(tag) != PLCTAG_STATUS_OK)
       {
         std::cout << "Error setting up tag internal state for "<< address << "with Error: "<< plc_tag_decode_error(rc) << std::endl;
@@ -109,66 +121,77 @@ public:
         else
         {
         //result.setValue(plc_tag_get_float32((int32_t)tagMap[address], 0));
-          //std::cout << "About to write the type " << result.typeAsString() << std::endl;
-          ::comm::datalayer::VariantType dataType = result.getType();
+          //std::cout << "About to write the type " << result.typeAsString() << std::endl;*/
+          //::comm::datalayer::VariantType dataType = result.getType();
+         /* ::comm::datalayer::VariantType dataType = tempABTag.type;
           switch (dataType)
           {
             case ::comm::datalayer::VariantType::BOOL8:
             //  std::cout << "Bool8 type" << std::endl;
-              result.setValue(plc_tag_get_bit(tag, 0));     
+              result.setValue(*(bool*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::INT8:
             //  std::cout << "INT8 type" << std::endl;
-              result.setValue(plc_tag_get_int8(tag, 0));     
+              //result.setValue(plc_tag_get_int8(tag, 0));     
+              result.setValue(*(int8_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::UINT8:
             //  std::cout << "UINT8 type" << std::endl;
-              result.setValue(plc_tag_get_uint8(tag, 0));              
+              //result.setValue(plc_tag_get_uint8(tag, 0));              
+              result.setValue(*(uint8_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::INT16: 
             //  std::cout << "INT16 type" << std::endl;
-              result.setValue(plc_tag_get_int16(tag, 0));                 
+              //result.setValue(plc_tag_get_int16(tag, 0));                 
+              result.setValue(*(int16_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::UINT16:  
             //  std::cout << "UINT16 type" << std::endl;
-              result.setValue(plc_tag_get_uint16(tag, 0));                
+              //result.setValue(plc_tag_get_uint16(tag, 0));                
+              result.setValue(*(uint16_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::INT32:
             //  std::cout << "INT32 type" << std::endl;
-              result.setValue(plc_tag_get_int32(tag, 0));           
+              //result.setValue(plc_tag_get_int32(tag, 0));           
+              result.setValue(*(int32_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::UINT32:
             //  std::cout << "UINT32 type" << std::endl;
-              result.setValue(plc_tag_get_uint32(tag, 0));                   
+              //result.setValue(plc_tag_get_uint32(tag, 0));                   
+              result.setValue(*(uint32_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::INT64:   
             //  std::cout << "INT64 type" << std::endl;
-              result.setValue(plc_tag_get_int64(tag, 0));           
+              //result.setValue(plc_tag_get_int64(tag, 0));           
+              result.setValue(*(int64_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::UINT64:  
             //  std::cout << "UINT64 type" << std::endl;
-              result.setValue(plc_tag_get_uint64(tag, 0));          
+              //result.setValue(plc_tag_get_uint64(tag, 0));          
+              result.setValue(*(uint64_t*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::FLOAT32: 
             //  std::cout << "FLOAT32 type" << std::endl;     
-              result.setValue(plc_tag_get_float32(tag, 0));
+              //result.setValue(plc_tag_get_float32(tag, 0));
+              result.setValue(*(_Float32*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::FLOAT64:  
             //  std::cout << "FLOAT64 type" << std::endl;         
-              result.setValue(plc_tag_get_float32(tag, 0));
+              //result.setValue(plc_tag_get_float32(tag, 0));
+              result.setValue(*(_Float64*)tempABTag.datalayerVariable.getData());     
               break;
             case ::comm::datalayer::VariantType::STRING: 
-            //  std::cout << "STRING type" << std::endl;
               char temp[100];
               plc_tag_get_string(tag, 0, temp, 100);
-              result.setValue(temp);
+              //result.setValue(temp);
+              result.setValue(*(char*)tempABTag.datalayerVariable.getData());     
               break;
             default:
               std::cout << "Unknown Type" << std::endl;
-          }
-        }
-      }
-    callback(comm::datalayer::DlResult::DL_OK, &result);
+          }*/
+        //}
+     // }
+    callback(comm::datalayer::DlResult::DL_OK, result);
   }
 
   // Write function of a node. Function will be called whenever a node should be written.
@@ -337,9 +360,6 @@ datalayer.start(false);
 comm::datalayer::IProvider *myProvider = datalayer.factory()->createProvider(DL_IPC_AUTO);//"tcp://boschrexroth:boschrexroth@192.168.1.16:2070"); //or "tcp://boschrexroth:boschrexroth@192.168.1.1:2070
 
 /*Define what data to look at*/
-std::vector<std::string> tagNames;
-std::vector<comm::datalayer::VariantType> tagTypes;
-std::vector<ABTag> abTags;
 tagNames.push_back("SinCounter");
 tagTypes.push_back(comm::datalayer::VariantType::FLOAT32);
 tagNames.push_back("myLINT");
@@ -376,9 +396,10 @@ for (int i = 0; i < abTags.size(); i++)
     else
     {
       int temp = (int)tag;
+      abTags[i].tag = tag;
       tagMap.insert(std::make_pair("myData/" + abTags[i].path, temp));
       ABtagMap.insert(std::make_pair("myData/" + abTags[i].path, abTags[i]));
-
+      ptrABtagMap.insert(std::make_pair("myData/" + abTags[i].path, i));//&abTags[i])))
       abTags[i].datalayerVariable.setType(abTags[i].type);
       result = myProvider->registerNode("myData/" + abTags[i].path, new MyProviderNode(abTags[i].datalayerVariable));
       if(STATUS_FAILED(result))
@@ -528,11 +549,117 @@ for (int i = 0; i < abTags.size(); i++)
   act.sa_flags = SA_SIGINFO;
   sigaction(SIGINT, &act, NULL);
   
+  //std::map<std::string, ABTag>::iterator iterator;// = ABtagMap.begin();
+  std::vector<ABTag>::iterator iterator;// = ABtagMap.begin();
+  ABTag localTag = ABTag("SinCounter", comm::datalayer::VariantType::FLOAT32);
+
   do
   {
     /* code */
     // Time to interrupt this thread for lower cpu utilization
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    //iterator = ABtagMap.begin();
+    iterator = abTags.begin();
+    //while (iterator != ABtagMap.end())
+    while (iterator != abTags.end())
+    {
+    //localTag = iterator->second;
+    //localTag = *iterator;
+    //tag =  localTag.tag;//(int32_t)tagMap[address];
+      std::cout << "Attempting to read "<< localTag.path << std::endl;
+      if(rc = plc_tag_status(iterator->tag) != PLCTAG_STATUS_OK)
+      {
+        std::cout << "Error setting up tag internal state for "<< localTag.path << "with Error: "<< plc_tag_decode_error(rc) << std::endl;
+      }
+      else
+      {
+        rc = plc_tag_read(tag, 5000);
+        if(rc != PLCTAG_STATUS_OK) 
+        {
+          std::cout << "ERROR: Unable to read the data for variable " << iterator->path << "with error code: "<< plc_tag_decode_error(rc) << std::endl;
+        }
+        else
+        {
+        //result.setValue(plc_tag_get_float32((int32_t)tagMap[address], 0));
+          //std::cout << "About to write the type " << result.typeAsString() << std::endl;
+          ::comm::datalayer::VariantType dataType = iterator->type;//result.getType();
+          tag = iterator->tag;
+          switch (dataType)
+          {
+            case ::comm::datalayer::VariantType::BOOL8:
+            //  std::cout << "Bool8 type" << std::endl;
+              //result.setValue(plc_tag_get_bit(tag, 0));     
+              iterator->datalayerVariable.setValue(plc_tag_get_bit(tag, 0));     
+              break;
+            case ::comm::datalayer::VariantType::INT8:
+            //  std::cout << "INT8 type" << std::endl;
+              //result.setValue(plc_tag_get_int8(tag, 0));    
+              iterator->datalayerVariable.setValue(plc_tag_get_int8(tag, 0));     
+              break;
+            case ::comm::datalayer::VariantType::UINT8:
+            //  std::cout << "UINT8 type" << std::endl;
+              //result.setValue(plc_tag_get_uint8(tag, 0));              
+              iterator->datalayerVariable.setValue(plc_tag_get_uint8(tag, 0));             
+              break;
+            case ::comm::datalayer::VariantType::INT16: 
+            //  std::cout << "INT16 type" << std::endl;
+              //result.setValue(plc_tag_get_int16(tag, 0));             
+              iterator->datalayerVariable.setValue(plc_tag_get_int16(tag, 0));                 
+              break;
+            case ::comm::datalayer::VariantType::UINT16:  
+            //  std::cout << "UINT16 type" << std::endl;
+              //result.setValue(plc_tag_get_uint16(tag, 0));                
+              iterator->datalayerVariable.setValue(plc_tag_get_uint16(tag, 0));                
+              break;
+            case ::comm::datalayer::VariantType::INT32:
+            //  std::cout << "INT32 type" << std::endl;
+              //result.setValue(plc_tag_get_int32(tag, 0));           
+              iterator->datalayerVariable.setValue(plc_tag_get_int32(tag, 0));           
+              break;
+            case ::comm::datalayer::VariantType::UINT32:
+            //  std::cout << "UINT32 type" << std::endl;
+              //result.setValue(plc_tag_get_uint32(tag, 0));                   
+              iterator->datalayerVariable.setValue(plc_tag_get_uint32(tag, 0));                   
+              break;
+            case ::comm::datalayer::VariantType::INT64:   
+            //  std::cout << "INT64 type" << std::endl;
+              //result.setValue(plc_tag_get_int64(tag, 0));           
+              iterator->datalayerVariable.setValue(plc_tag_get_int64(tag, 0)); 
+              std::cout << "Read " << localTag.path << "= " << *(int64_t*)iterator->datalayerVariable.getData() << std::endl;          
+              break;
+            case ::comm::datalayer::VariantType::UINT64:  
+            //  std::cout << "UINT64 type" << std::endl;
+              //result.setValue(plc_tag_get_uint64(tag, 0));         
+              iterator->datalayerVariable.setValue(plc_tag_get_uint64(tag, 0));          
+              break;
+            case ::comm::datalayer::VariantType::FLOAT32: 
+            //  std::cout << "FLOAT32 type" << std::endl;     
+              //result.setValue(plc_tag_get_float32(tag, 0));
+              iterator->datalayerVariable.setValue(plc_tag_get_float32(tag, 0));
+              std::cout << "Read " << localTag.path << "= " << *(_Float32*)iterator->datalayerVariable.getData() << std::endl; 
+              std::cout << "Data in AB variable " << *(_Float32*)(iterator->datalayerVariable.getData()) << std::endl; 
+              break;
+            case ::comm::datalayer::VariantType::FLOAT64:  
+            //  std::cout << "FLOAT64 type" << std::endl;         
+              //result.setValue(plc_tag_get_float32(tag, 0));
+              iterator->datalayerVariable.setValue(plc_tag_get_float32(tag, 0));
+              break;
+            case ::comm::datalayer::VariantType::STRING: 
+            //  std::cout << "STRING type" << std::endl;
+              char temp[100];
+              plc_tag_get_string(tag, 0, temp, 100);
+              //result.setValue(temp);
+              iterator->datalayerVariable.setValue(temp);
+              break;
+            default:
+              std::cout << "Unknown Type" << std::endl;
+          }
+        }
+      }
+      //iterator->second = localTag;
+      iterator++;
+    }
+
   } while (!endProcess);
 
   // Unregister type and nodes
