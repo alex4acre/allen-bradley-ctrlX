@@ -8,12 +8,12 @@ cmake_minimum_required( VERSION 3.9 )
 # Set project, VERSION should be same as snap version
 #
 set(VERSION 1.0.2)
-project( register_node_snap_project VERSION ${VERSION} )
+project( allen_bradley_snap_project VERSION ${VERSION} )
 
 #
 # Set TARGET_PROJECT_NAME for each executable (same as snap "app name" =ExeName)
 #
-set(TARGET_PROJECT_NAME registerNode)
+set(TARGET_PROJECT_NAME allen-bradley)
 
 #
 # User dependency directories

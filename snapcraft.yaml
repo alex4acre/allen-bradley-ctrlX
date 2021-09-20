@@ -3,20 +3,20 @@
 # Snapcraft references
 # See https://snapcraft.io/docs/snapcraft-yaml-reference
 
-name: registernode
-version: "1.0.2"
+#name: registernode
+name: allen-bradley
+version: "1.0.01"
 grade: stable
-summary: Sample app to register 'myData' node on ctrlX Data Layer
+summary: App to pull data from and Allen-Bradley Controller  #Sample app to register 'myData' node on ctrlX Data Layer
 description: |
-  This app will create a 'myData' node with different element types
-  on ctrlX Data Layer (required for sample app 'datalayerclient')
+  This app will read the AB.json file at the root of the activeConfiguration to subsribe and produce data. 
 base: core18
 confinement: strict
 
 # define how apps & services are exposed to host system
 apps:
   registerNode:
-    command: registerNode
+    command: allen-bradley
     # interfaces to connect to https://snapcraft.io/docs/supported-interfaces
     plugs: [network, network-status, network-bind, process-control]
     daemon: simple
@@ -36,3 +36,8 @@ plugs:
     interface: content
     content: datalayer
     target: $SNAP_DATA/.datalayer 
+
+  active-solution:
+    interface: content
+    content: solutions
+    target: $SNAP_COMMON/solutions    
