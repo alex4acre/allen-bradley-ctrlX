@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build",
-  "command": "g++   -I\"/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build\" -I\"/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node\" -I\"/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/include\" -I\"/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../include\" -I\"/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/../../include/comm.datalayer\"   -fno-rtti -std=c++14 -fPIC -O3 -DNDEBUG   -o CMakeFiles/registerNode.dir/main.cpp.o -c \"/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/main.cpp\"",
-  "file": "/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/main.cpp"
-}
-]

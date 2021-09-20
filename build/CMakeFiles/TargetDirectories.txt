@@ -1,8 +1,0 @@
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/install/strip.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/install/local.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/registerNode.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/registernodeflatbuffers.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/install.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/edit_cache.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/rebuild_cache.dir
-/mnt/e/ctrlX Development/public/samples-cpp/datalayer.register.node/build/CMakeFiles/list_install_components.dir

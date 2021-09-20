@@ -1,43 +1,37 @@
-# README datalayer.register.node
+# README allen-bradley-ctrlX
 
-The sample app __datalayer.register.node__ creates a new provider with node '__myData__' and different type elements to the ctrlX Data Layer.
+The sample app __allen-bradley__ creates provider nodes corresponding to data on an Allen-Bradely PLC. This data is readable/writable to the PLC.
 
 ## Introduction
 
-It demonstrates how you can create a node with data elements to ctrlX CORE or ctrlx CORE Virtual Data Layer. These elements can be accessed by a client app (e.g. sample app datalayer.client)
+Create an AB.json file at the root of the activeConfiguration folder on the ctrlX. 
 
-* a data provider -> registernode (snap name)
-* a data client -> datalayerclient (snap name) can be used to change the values of provided nodes of datalayer.register.node
+The json has a few elements that can be configured including the IP address of the Allen-Bradely control and Rate which is the milli-seconds between samples. The tag array is required and is where the tag name and type can be set. 
 
-## Pre-requisites
+    {"IP":"192.168.0.70",
+    "Rate":250,
+    "tag":
+        [
+            {"name":"tag1Name","type":"tag1Type"},
+            {"name":"tag2Name","type":"tag2Type"},
+            {"name":"tag3Name","type":"tag3Type"}
+        ]
+    }
 
-* Buildenvironment WSL or Virtual Box
-* ctrlX AUTOMATION SDK Version 1.2 
-* ctrlX CORE<sup>virtual</sup> or ctrlX CORE
+Tag types include:
 
-
-## Getting Started
-
-1. Launch IDE (VSCode for example)
-2. Open the sample directory `samples-cpp/datalayer.register.node`
-3. Build and install the snap as described [build](./../build.md)
-4. Check output in the web interface
-
-
-## Screenshots
-
-![Output in diagnosis logbook](docs/images/datalayer.register.node/messages.in.logbook.png)
-![Data Layer tree](docs/images/datalayer.register.node/datalayer.register.node.png)
-
-## Troubleshooting
-
-All automatically created files are located in folders `build` and `generated`.  
-If there are unclear messages during the build process, it might help to delete the folders `build` and `generated` and restart the build process.
-
-## Support
-
-If you've any questions visit the [ctrlX AUTOMATION Communitiy](https://developer.community.boschrexroth.com/)
-
+    bool8,
+    int8,
+    uint8,
+    int16,
+    uint16,
+    int32,
+    uint32,
+    int64,
+    uint64,
+    float,
+    double,
+    string
 ___
 
 ## License
