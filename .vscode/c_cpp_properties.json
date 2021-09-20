@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/../../include",
-                "${workspaceFolder}/../../include/comm.datalayer"
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/include/comm.datalayer"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

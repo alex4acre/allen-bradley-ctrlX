@@ -38,8 +38,6 @@
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
 
-//#include "sampleSchema_generated.h"
-
 class ABTag 
 {
   public: 
