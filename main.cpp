@@ -111,11 +111,6 @@ public:
     data->checkConvert(m_data.getType()); 
     if ((data->getType() == m_data.getType()) || (m_data.getType() == ::comm::datalayer::VariantType::BOOL8))
     {
-     /* if (m_data.getType() == ::comm::datalayer::VariantType::BOOL8)
-        {
-          data->checkConvert(comm::datalayer::VariantType::BOOL8);
-        }
-      //data->checkConvert(m_data.getType())*/    
       m_data = *data;
 
       
@@ -217,42 +212,6 @@ public:
   // Read function of metadata of an object. Function will be called whenever a node should be written.
   virtual void onMetadata(const std::string &address, const comm::datalayer::IProviderNode::ResponseCallback &callback) override
   {
-  /*  flatbuffers::FlatBufferBuilder builder;
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<comm::datalayer::Reference>>> references;
-    auto emptyString = builder.CreateString("This is a Description");
-
-    if (address.compare("AB/myFlatbuffer") == 0)
-    {
-      flatbuffers::Offset<comm::datalayer::Reference> vecReferences[] =
-      {
-        comm::datalayer::CreateReferenceDirect(builder, "readType", "types/sampleSchema/inertialValue"),
-      };
-
-      references = builder.CreateVectorOfSortedTables(vecReferences, 1);
-    }
-
-    // Set allowed operations
-    comm::datalayer::AllowedOperationsBuilder allowedOperations(builder);
-    allowedOperations.add_read(true);
-    allowedOperations.add_write(false);
-    allowedOperations.add_create(true);
-    allowedOperations.add_delete_(false);
-    auto operations = allowedOperations.Finish();
-
-    // Create metadata
-    comm::datalayer::MetadataBuilder metadata(builder);
-    metadata.add_description(emptyString);
-    metadata.add_descriptionUrl(emptyString);
-    metadata.add_operations(operations);
-    if (address.compare("AB/myFlatbuffer") == 0)
-    {
-      metadata.add_references(references);
-    }
-    auto metaFinished = metadata.Finish();
-    builder.Finish(metaFinished);
-
-    comm::datalayer::Variant variant;
-    variant.shareFlatbuffers(builder);*/
     comm::datalayer::Variant variant;
     callback(comm::datalayer::DlResult::DL_OK, &variant);
   }
@@ -347,25 +306,6 @@ else
   {
     std::cout << "error: " << filePath << std::endl;
   }
-
-/*Define what data to look at*/
-/*tagNames.push_back("SinCounter");
-tagTypes.push_back(comm::datalayer::VariantType::FLOAT32);
-tagNames.push_back("myLINT");
-tagTypes.push_back(comm::datalayer::VariantType::INT64);
-tagNames.push_back("Line1_OEE");
-tagTypes.push_back(comm::datalayer::VariantType::FLOAT32);
-tagNames.push_back("mySINReflection");
-tagTypes.push_back(comm::datalayer::VariantType::FLOAT32);
-tagNames.push_back("MyString");
-tagTypes.push_back(comm::datalayer::VariantType::STRING);
-
-abTags.push_back(ABTag("SinCounter", comm::datalayer::VariantType::FLOAT32));
-abTags.push_back(ABTag("myLINT", comm::datalayer::VariantType::INT64));
-abTags.push_back(ABTag("Line1_OEE", comm::datalayer::VariantType::FLOAT32));
-abTags.push_back(ABTag("mySINReflection", comm::datalayer::VariantType::FLOAT32));
-abTags.push_back(ABTag("MyString", comm::datalayer::VariantType::STRING));
-*/
 
 //std::string activeData;
 for (int i = 0; i < abTags.size(); i++)
