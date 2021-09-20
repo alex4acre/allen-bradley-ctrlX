@@ -22,13 +22,13 @@ apps:
     daemon: simple
 
 parts:
-  registernode:
+  allen-bradley:
     plugin: dump
     source: ./generated/build
 
-  flatbuffers:
-    plugin: dump
-    source: ./bfbs
+  #flatbuffers:
+  #  plugin: dump
+  #  source: ./bfbs
 
 # describes which interface slots are supported by defining the plugs
 plugs:

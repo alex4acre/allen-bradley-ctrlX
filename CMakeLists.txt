@@ -83,12 +83,12 @@ SET ( PRIVATE_INCLUDE_DIRS
 #
 # Flatbuffers
 #
-set (FLATBUFFERS_FLATC_EXECUTABLE ${USER_DEPENDENCY_DIR}/bin/oss.flatbuffers/linux-gcc-x64/release/flatc)
-set (FLATBUFFERS_INCLUDE_DIR ${USER_DEPENDENCY_DIR}/include/oss.flatbuffers/oss.flatbuffers)
-include (${USER_DEPENDENCY_DIR}/cmake/oss.flatbuffers/FindFlatBuffers.cmake)
-set( FLATBUFFERS_FLATC_SCHEMA_EXTRA_ARGS "--gen-object-api")
+#set (FLATBUFFERS_FLATC_EXECUTABLE ${USER_DEPENDENCY_DIR}/bin/oss.flatbuffers/linux-gcc-x64/release/flatc)
+#set (FLATBUFFERS_INCLUDE_DIR ${USER_DEPENDENCY_DIR}/include/oss.flatbuffers/oss.flatbuffers)
+#include (${USER_DEPENDENCY_DIR}/cmake/oss.flatbuffers/FindFlatBuffers.cmake)
+#set( FLATBUFFERS_FLATC_SCHEMA_EXTRA_ARGS "--gen-object-api")
 
-build_flatbuffers("sampleSchema.fbs" "" "registernodeflatbuffers" "${CMAKE_CURRENT_LIST_DIR}" "${CMAKE_CURRENT_LIST_DIR}" "${CMAKE_CURRENT_LIST_DIR}/bfbs" "")
+#build_flatbuffers("sampleSchema.fbs" "" "registernodeflatbuffers" "${CMAKE_CURRENT_LIST_DIR}" "${CMAKE_CURRENT_LIST_DIR}" "${CMAKE_CURRENT_LIST_DIR}/bfbs" "")
 
 #
 # Set link directories
@@ -106,7 +106,7 @@ add_executable( ${TARGET_PROJECT_NAME}
 	${SOURCE_FILES_REGISTERNODE}
   )
 
-add_dependencies(${TARGET_PROJECT_NAME} registernodeflatbuffers)
+#add_dependencies(${TARGET_PROJECT_NAME} registernodeflatbuffers)
 
 #
 # Set target include directories
