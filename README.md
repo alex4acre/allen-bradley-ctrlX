@@ -4,31 +4,34 @@ The sample app __allen-bradley__ creates provider nodes corresponding to data on
 
 ## Introduction
 
-Create an AB.json file at the root of the activeConfiration folder on the ctrlX. The json has a few elements that can be configured including the IP address of the Allen-Bradely control and Rate which is the milli-seconds between samples. The tag array is required and is where the tag name and type can be set. 
+Create an AB.json file at the root of the activeConfiguration folder on the ctrlX. 
 
-{"IP":"192.168.0.70",
-"Rate":250,
+The json has a few elements that can be configured including the IP address of the Allen-Bradely control and Rate which is the milli-seconds between samples. The tag array is required and is where the tag name and type can be set. 
+
+    {"IP":"192.168.0.70",
+    "Rate":250,
     "tag":
-    [
-        {"name":"tag1Name","type":"tag1Type"},
-        {"name":"tag2Name","type":"tag2Type"},
-        {"name":"tag3Name","type":"tag3Type"}
-    ]
-}
+        [
+            {"name":"tag1Name","type":"tag1Type"},
+            {"name":"tag2Name","type":"tag2Type"},
+            {"name":"tag3Name","type":"tag3Type"}
+        ]
+    }
 
-Tag types include
-     bool8,
-     int8,
-     uint8,
-     int16,
-     uint16,
-     int32,
-     uint32,
-     int64,
-     uint64,
-     float,
-     double,
-     string
+Tag types include:
+
+    bool8,
+    int8,
+    uint8,
+    int16,
+    uint16,
+    int32,
+    uint32,
+    int64,
+    uint64,
+    float,
+    double,
+    string
 ___
 
 ## License
