@@ -3,7 +3,7 @@
 # Snapcraft references
 # See https://snapcraft.io/docs/snapcraft-yaml-reference
 
-name: allen-bradley
+name: allen-bradley-ctrlx
 version: "1.0.01"
 grade: stable
 summary: App to pull data from and Allen-Bradley Controller  #Sample app to register 'myData' node on ctrlX Data Layer
