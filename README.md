@@ -14,10 +14,24 @@ The json has a few elements that can be configured including the IP address of t
         [
             {"name":"tag1Name","type":"tag1Type"},
             {"name":"tag2Name","type":"tag2Type"},
-            {"name":"tag3Name","type":"tag3Type"}
+            {"name":"tag3Name","type":"tag3Type"},
+            ...
+            {"name":"tagNName","type":"tagNType"}
         ]
     }
 
+The current revision does not support array data types but it does support UDTs. These can be accessed by adding a "." to the end of the variable, like what is shown here:
+
+    ...
+     {"name":"UDTTagName.SubTagName","type":"typeOfSubTag"},
+    ...
+    
+It is also possible to read/write data from an individual subprogram as follows:
+
+    ...
+     {"name":"Program:SubProgramName.TagName","type":"tagType"},
+    ...
+    
 Tag types include:
 
     bool8,
