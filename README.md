@@ -23,13 +23,19 @@ The json has a few elements that can be configured including the IP address of t
 The current revision does not support array data types but it does support UDTs. These can be accessed by adding a "." to the end of the variable, like what is shown here:
 
     ...
-     {"name":"UDTTagName.SubTagName","type":"typeOfSubTag"},
+    {"name":"UDTTagName.SubTagName","type":"typeOfSubTag"},
     ...
     
 It is also possible to read/write data from an individual subprogram as follows:
 
     ...
-     {"name":"Program:SubProgramName.TagName","type":"tagType"},
+    {"name":"Program:SubProgramName.TagName","type":"tagType"},
+    ...
+    
+IO can be accessed like any other variable. 
+
+    ...
+    {"name":"Local:1:O.Data.1","type":"bool8"},
     ...
     
 Tag types include:
