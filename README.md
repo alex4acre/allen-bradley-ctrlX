@@ -59,7 +59,7 @@ ___
 
 ## License
 
-This software includes a compiled unchanged version of the Open-Source application, libplctag, linked [here](https://github.com/libplctag/libplctag#github) and distributed under the MPL license.
+This software includes a compiled unchanged version of the Open-Source application, libplctag, linked [here](https://github.com/libplctag/libplctag#license) and distributed under the MPL license.
 
 MIT License
 
