@@ -22,7 +22,6 @@ set(TARGET_PROJECT_NAME allen-bradley)
 set (USER_DEPENDENCY_DIR ${CMAKE_CURRENT_LIST_DIR})
 set (DATALAYER_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/comm.datalayer/)
 set (ZMQ_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/zmq/)
-set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/arm/)
 
 #
 # Option to Build the Snap
@@ -54,12 +53,14 @@ if( UNIX )
     SET(CMAKE_CXX_COMPILER aarch64-linux-gnu-g++)
     SET(PLATFORM_NAME "linux-gcc-aarch64")
     SET(SNAP_ARCH "arm64")
+    set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/arm/)
   ELSE()
     MESSAGE(STATUS "Set Platformname to: linux-gcc-x64")
     SET(CMAKE_C_COMPILER gcc)
     SET(CMAKE_CXX_COMPILER g++)
     SET(PLATFORM_NAME "linux-gcc-x64")
     SET(SNAP_ARCH "amd64")
+    set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/x64/)
   ENDIF()
 endif()
 
