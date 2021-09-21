@@ -18,7 +18,8 @@ set(TARGET_PROJECT_NAME allen-bradley)
 #
 # User dependency directories
 #
-set (USER_DEPENDENCY_DIR ${CMAKE_CURRENT_LIST_DIR}/../../)
+#set (USER_DEPENDENCY_DIR ${CMAKE_CURRENT_LIST_DIR}/../../)
+set (USER_DEPENDENCY_DIR ${CMAKE_CURRENT_LIST_DIR})
 set (DATALAYER_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/comm.datalayer/)
 set (ZMQ_DEP_DIR ${USER_DEPENDENCY_DIR}/bin/zmq/)
 set (AB_DRIVER_DEP ${CMAKE_CURRENT_LIST_DIR}/lib/arm/)

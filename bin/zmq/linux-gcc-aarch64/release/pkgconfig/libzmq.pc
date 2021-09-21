@@ -1,0 +1,11 @@
+prefix=/var/jenkins/workspace/oss.zmq/private/generated/build_tmp/linux-gcc-aarch64/release
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.3.1
+Libs: -L${libdir} -lzmq
+Libs.private: -lstdc++ 
+Cflags: -I${includedir} -DZMQ_BUILD_DRAFT_API=1
