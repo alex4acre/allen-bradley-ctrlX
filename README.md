@@ -54,7 +54,12 @@ Tag types include:
     string
 ___
 
+
+
+
 ## License
+
+This software includes a compiled unchanged version of the Open-Source application, libplctag, linked [here](https://github.com/libplctag/libplctag#github) and distributed under the MPL license.
 
 MIT License
 
